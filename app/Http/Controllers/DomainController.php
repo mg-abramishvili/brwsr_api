@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Link;
+use App\Models\Domain;
 use Illuminate\Http\Request;
 
-class LinkController extends Controller
+class DomainController extends Controller
 {
     public function index()
     {
-        return Link::pluck('url');
+        return Domain::pluck('url');
     }
 }

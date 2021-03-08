@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Link;
 use App\Models\Domain;
 use Illuminate\Http\Request;
 
-class LinkAdminController extends Controller
+class DomainAdminController extends Controller
 {
     public function index()
     {
-        $links = Link::all();
         $domains = Domain::all();
-        return view('links.index', compact('links', 'domains'));
+        return view('domains.index', compact('domains'));
     }
 
     public function create()
     {
-        return view('links.create');
+        return view('domains.create');
     }
 
     public function store(Request $request)
@@ -27,16 +25,16 @@ class LinkAdminController extends Controller
         ]);
 
         $data = request()->all();
-        $links = new Link();
-        $links->url = $data['url'];
-        $links->save();
+        $domains = new Domain();
+        $domains->url = $data['url'];
+        $domains->save();
         return redirect('/');
     }
 
     public function delete($id)
     {
-        $links = Link::find($id);
-        $links->delete();
+        $domains = Domain::find($id);
+        $domains->delete();
         return redirect('/');
     }
 }
