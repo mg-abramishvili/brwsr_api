@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Link;
 use App\Models\Domain;
+use App\Models\Homepage;
 use Illuminate\Http\Request;
 
 class LinkAdminController extends Controller
@@ -12,7 +13,8 @@ class LinkAdminController extends Controller
     {
         $links = Link::all();
         $domains = Domain::all();
-        return view('links.index', compact('links', 'domains'));
+        $homepage = Homepage::where('id', '1')->first();
+        return view('links.index', compact('links', 'domains', 'homepage'));
     }
 
     public function create()

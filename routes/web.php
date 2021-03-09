@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LinkAdminController;
 use App\Http\Controllers\DomainAdminController;
+use App\Http\Controllers\HomepageAdminController;
 
 // AUTH
 Auth::routes([
@@ -18,3 +19,5 @@ Route::get('links/delete/{id}','App\Http\Controllers\LinkAdminController@delete'
 Route::get('/new-domain', 'App\Http\Controllers\DomainAdminController@create')->middleware('auth');
 Route::post('/domains', 'App\Http\Controllers\DomainAdminController@store');
 Route::get('domains/delete/{id}','App\Http\Controllers\DomainAdminController@delete')->middleware('auth');
+
+Route::put('/homepage/{id}', 'App\Http\Controllers\HomepageAdminController@update');

@@ -2,6 +2,25 @@
 @section('content')
 
     <div class="row">
+
+        <div class="col-12 mb-4">
+            <form action="/homepage/{{$homepage->id}}" method="post" enctype="multipart/form-data" class="bg-info p-4">
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="id" value="{{$homepage->id}}">
+
+                <label>Домашняя страница</label>
+                <input type="text" class="form-control" name="url" placeholder="Домашняя страница" value="{{$homepage->url}}">
+                @if ($errors->has('url'))
+                    <div class="alert alert-danger">
+                        Укажите адрес домашней страницы
+                    </div>
+                @endif
+
+                <button type="submit" class="btn btn-lg btn-success">Сохранить</button>
+            </form>
+        </div>
+
         <div class="col-12 col-md-6">
             <div class="row align-items-center mb-4">
                 <div class="col-12">
