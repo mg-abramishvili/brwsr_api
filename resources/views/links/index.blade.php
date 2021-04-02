@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
+<style>
+	table tr:first-child {
+		display:none;
+	}
+</style>
+
     <div class="row">
 
         <div class="col-12 mb-4">
